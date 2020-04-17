@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <script>
+function computerPlay() {
+    var nigger = Math.floor((Math.random() * 3) + 1);
+    return nigger;
+}	
+
+function playRound(playerSelection, computerSelection) {
+    var loss = "buddy retard over here just pulled a nigga move and lost to a computer";
+    var win = "retard nigga as just won nigga retard"
+    if (playerSelection === computerSelection) {
+        console.log ("nigga imagine tying with a computer no cap");
+    } else if (playerSelection === 1 && computerSelection === 3) {
+        console.log (win + " rock against scissor");
+    } else if (playerSelection === 2 && computerSelection === 1) {
+        console.log (win + " paper aginst rock");
+    } else if (playerSelection === 3 && computerSelection === 2) {
+        console.log (win + " scissor against paper");     	
+    } else if (computerSelection === 1 && playerSelection === 3) {
+        console.log (loss + " rock looses aginst scissor retard boy");
+    } else if (computerSelection === 2 && playerSelection === 1) {
+        console.log (loss + " paper looses aginst rock retard boy");
+    } else if (computerSelection === 3 && playerSelection === 2) {
+        console.log (loss + " scissors looses against paper retard boy");
+    } else {
+        console.log ("this nigga don't know how to play rock paper scissors what a fucking retard nigger")
+    }
+      
+}
+function fixWord(word) {
+  var string = word;
+	var readable = string.toLowerCase();
+    if (readable != "rock" || readable != "paper" || readable != "scissors") {
+        return "none";
+    } else {
+        return readable;
+    }
+}
+function wordToNumber(words) {
+    if (words === "rock") {
+        return 1;
+    } else if (words === "paper") {
+        return 2;
+    } else if (words === "scissors") {
+        return 3;
+    } else {
+        return 0;
+    }
+}
+var playerChoice = prompt("nigga pick");
+fixWord(playerChoice);
+wordToNumber(fixWord());
+playRound(wordToNumber(), computerPlay());
+    </script>
+</html>
