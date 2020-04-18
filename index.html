@@ -1,42 +1,48 @@
 <!DOCTYPE html>
-<html>
-    <script>
-function computerChoice() {
-    let PC = Math.floor((Math.random() * 3) + 1);
-    if (PC === 1) {
-        return "rock";
-  } else if (PC === 2) {
-        return "paper";
-  } else {
-        return "scissors";
-  }
-}
-function readableText(text) {
-    return text.toLowerCase();
-}
-function singleGame(computer, player) {
-    let win = "Congrats you won because"
-  	let loss = "Dipshit you fucking retard lost because"
-  	if (player === "rock" && computer === "scissors") {
-        console.log(win + " rock beats scissors");
-  	} else if (player === "paper" && computer === "rock") {
-        console.log(win + " paper beats rock");
-  	} else if (player === "scissors" && computer === "paper") {
-        console.log(win + " scissors beats paper");
-  	} else if (computer === "rock" && player === "scissors") {
-        console.log(loss + " rock beats scissors");
-  	} else if (computer === "paper" && player === "rock") {
-        console.log(loss + " paper beats rock");
-  	} else if (computer === "scissors" && player === "paper") {
-        console.log(loss + " scissors beats paper");
-  	} else if (computer === player) {
-        console.log("nigga u lame yall tied ");
-  	} else {
-        console.log("lmaooo this nigga don't know how to play roshambo");
-  }
-}
+<html>]
+    <head>
+        <title>Nigga paper nigga</title>
+        <meta charset="UTF-8"/>
+      </head>
+    <body>
+        <script>
+            function computerChoice() {
+                let PC = Math.floor((Math.random() * 3) + 1);
+                if (PC === 1) {
+                    return "rock";
+                } else if (PC === 2) {
+                    return "paper";
+                } else {
+                    return "scissors";
+                }
+            }
+            function readableText(text) {
+                return text.toLowerCase();
+            }
+            function singleGame(computer, player) {
+                let win = "Congrats you won because"
+  	            let loss = "Dipshit you fucking retard lost because"
+  	            if (player === "rock" && computer === "scissors") {
+                    console.log(win + " rock beats scissors");
+  	            } else if (player === "paper" && computer === "rock") {
+                    console.log(win + " paper beats rock");
+  	            } else if (player === "scissors" && computer === "paper") {
+                    console.log(win + " scissors beats paper");
+  	            } else if (computer === "rock" && player === "scissors") {
+                    console.log(loss + " rock beats scissors");
+  	            } else if (computer === "paper" && player === "rock") {
+                    console.log(loss + " paper beats rock");
+  	            } else if (computer === "scissors" && player === "paper") {
+                    console.log(loss + " scissors beats paper");
+  	            } else if (computer === player) {
+                    console.log("nigga u lame yall tied ");
+  	            } else {
+                    console.log("lmaooo this nigga don't know how to play roshambo");
+                }
+            }
 
-let playerChoice = prompt("choose rock, paper or scissors");
-singleGame(computerChoice(), readableText(playerChoice));
-    </script>
+            let playerChoice = prompt("choose rock, paper or scissors");
+            singleGame(computerChoice(), readableText(playerChoice));
+        </script>
+    </body>
 </html>
