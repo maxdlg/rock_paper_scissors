@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>]
     <head>
-        <title>Nigga paper nigga</title>
+        <title>rock paper niggas</title>
         <meta charset="UTF-8"/>
       </head>
     <body>
         <script>
-            function computerChoice() { //generate a random number between 1 and 3, 1 is rock, 2 is paper, and 3 is scissors
-                let PC = Math.floor((Math.random() * 3) + 1);
-                if (PC === 1) {
+            //generate a random number between 1 and 3, 1 is rock, 2 is paper, and 3 is scissors
+            function generateComputerChoice() { 
+                let randomNumber = Math.floor((Math.random() * 3) + 1);
+                if (randomNumber === 1) {
                     return "rock";
-                } else if (PC === 2) {
+                } else if (randomNumber === 2) {
                     return "paper";
                 } else {
                     return "scissors";
                 }
             }
-            function readableText(text) { //just turns the text that the player inputed to lowercase
+            //just turns the text that the player inputed to lowercase
+            function makeTextReadable(text) { 
                 return text.toLowerCase();
             }
-            function singleGame(computer, player) { //all the game logic
+            //all the game logic
+            function playOneGame(computer, player) { 
                 let win = "Congrats you won because"
                 let loss = "Dipshit you fucking retard lost because"
                 if (player === "rock" && computer === "scissors") {
@@ -49,12 +52,13 @@
                 }
             }
 
-            function game() {
+            function playBestOfFive() {
                 let playerWins = 0;
                 let computerWins = 0;
-              	while (playerWins < 3 && computerWins < 3) { //checks to see if either player has over 3 rounds won, if so gets out and determines winner
+                //checks to see if either player has over 3 rounds won, if so exits loop and determines winner
+              	while (playerWins < 3 && computerWins < 3) { 
                   	let playerChoice = prompt("nigga choose");
-              			let winner = singleGame(computerChoice(), readableText(playerChoice));
+              			let winner = playOneGame(generateComputerChoice(), makeTextReadable(playerChoice));
                 		if (winner === 1) {
                   			playerWins = playerWins + 1;
                 		} else if (winner === 2) {
@@ -72,7 +76,7 @@
               }
             }
 
-            game(); 
+            playBestOfFive(); 
         </script>
     </body>
 </html>
