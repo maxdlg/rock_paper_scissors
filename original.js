@@ -37,35 +37,35 @@ function playOneGame(computer, player) {
         return 2;
     } else if (computer === player) {
         console.log("nigga u lame yall tied ");
-          return 0;
+        return 0;
     } else {
         console.log("lmaooo this nigga don't know how to play roshambo");
-          return 2;
+        return 2;
     }
 }
 
-function playBestOfFive() {
+function playBestOfFive() { 
     let playerWins = 0;
     let computerWins = 0;
     //checks to see if either player has over 3 rounds won, if so exits loop and determines winner
-      while (playerWins < 3 && computerWins < 3) { 
-          let playerChoice = prompt("nigga choose");
-              let winner = playOneGame(generateComputerChoice(), makeTextReadable(playerChoice));
-            if (winner === 1) {
-                  playerWins = playerWins + 1;
-            } else if (winner === 2) {
-                  computerWins = computerWins + 1;
-            } else {
-                  playerWins = playerWins;
-                  computerWins = computerWins;
-            }
+    while (playerWins < 3 && computerWins < 3) { 
+        let playerChoice = prompt("nigga choose");
+        let winner = playOneGame(generateComputerChoice(), makeTextReadable(playerChoice));
+        if (winner === 1) {
+            playerWins = playerWins + 1;
+        } else if (winner === 2) {
+            computerWins = computerWins + 1;
+        } else {
+            playerWins = playerWins;
+            computerWins = computerWins;
+        }
         console.log("You:" + playerWins + " | Computer:" + computerWins);
     } 
-  if (computerWins > playerWins) {
+    if (computerWins > playerWins) {
         console.log("retard boy retard boy retard boy retard boy lost");
-  } else {
+    } else {
         console.log("this fuckhead just won");
-  }
+    }
 }
 
 playBestOfFive(); 

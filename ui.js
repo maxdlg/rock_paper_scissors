@@ -1,3 +1,15 @@
+const textOutput = document.querySelector('#textOutput');
+
+const whoWon = document.createElement('p');
+
+const finalWinner = document.createElement('h3');
+
+textOutput.appendChild(whoWon);
+textOutput.appendChild(finalWinner);
+
+let computerWins = 0;
+let playerWins = 0;
+
 //generate a random number between 1 and 3, 1 is rock, 2 is paper, and 3 is scissors
 function generateComputerChoice() { 
     let randomNumber = Math.floor((Math.random() * 3) + 1);
@@ -5,56 +17,74 @@ function generateComputerChoice() {
         return "rock";
     } else if (randomNumber === 2) {
         return "paper";
-    } else {
+    } else { 
         return "scissors";
     }
-}
-//just turns the text that the player inputed to lowercase
-function makeTextReadable(text) { 
-    return text.toLowerCase();
 }
 //all the game logic
 function playOneGame(computer, player) { 
     let win = "Congrats you won because"
     let loss = "Dipshit you fucking retard lost because"
     if (player === "rock" && computer === "scissors") {
-        console.log(win + " rock beats scissors");
-        return 1;
+        playerWins++;
+        scoreCheck(computerWins, playerWins);
+        return win + " rock beats scissors";
     } else if (player === "paper" && computer === "rock") {
-        console.log(win + " paper beats rock");
-        return 1;
+        playerWins++;
+        scoreCheck(computerWins, playerWins);
+        return win + " paper beats rock";
     } else if (player === "scissors" && computer === "paper") {
-        console.log(win + " scissors beats paper");
-        return 1;
+        playerWins++;
+        scoreCheck(computerWins, playerWins);
+        return win + " scissors beats paper";
     } else if (computer === "rock" && player === "scissors") {
-        console.log(loss + " rock beats scissors");
-        return 2;
+        computerWins++;
+        scoreCheck(computerWins, playerWins);
+        return loss + " rock beats scissors";
     } else if (computer === "paper" && player === "rock") {
-        console.log(loss + " paper beats rock");
-        return 2;
+        computerWins++;
+        scoreCheck(computerWins, playerWins);
+        return loss + " paper beats rock";
     } else if (computer === "scissors" && player === "paper") {
-        console.log(loss + " scissors beats paper");
-        return 2;
-    } else if (computer === player) {
-        console.log("nigga u lame yall tied ");
-          return 0;
+        computerWins++;
+        scoreCheck(computerWins, playerWins);
+        return loss + " scissors beats paper";
     } else {
-        console.log("lmaooo this nigga don't know how to play roshambo");
-          return 2;
+        scoreCheck(computerWins, playerWins);
+        return "nigga u lame yall tied ";
     }
 }
 
-const rock = document.querySelector('#rock');
-rock.addEventListener('click', () => {
-    playOneGame(generateComputerChoice, 'rock');
-});
+function scoreCheck(computer, player) {
+    if (computer === 5 || player === 5) {
+        if (computer > player) {
+            finalWinner.textContent = "dipshit lost to a computer";
+        } else {
+            finalWinner.textContent = "fuckhead just won";
+        }
+    } else {
+        finalWinner.textContent = 'PLAYER SCORE:' + playerWins + ' | COMPUTER SCORE:' + computerWins;
+    }
+}
+// houses all the button inputs
+function possibleInputs() {
+    const rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => {
+        let oneGame = playOneGame(generateComputerChoice(), 'rock');
+        whoWon.textContent = oneGame;
+    });
 
-const paper = document.querySelector('#paper');
-paper.addEventListener('click', () =>  {
-    playOneGame(generateComputerChoice, 'paper');
-});
+    const paper = document.querySelector('#paper');
+    paper.addEventListener('click', () =>  {
+        let oneGame = playOneGame(generateComputerChoice(), "paper");
+        whoWon.textContent = oneGame;
+    });
 
-const scissors = document.querySelector('#scissors');
-scissors.addEventListener('click', () => {
-    playOneGame(generateComputerChoice, 'scissors');
-});
+    const scissors = document.querySelector('#scissors');
+    scissors.addEventListener('click', () => {
+        let oneGame = playOneGame(generateComputerChoice(), 'scissors');
+        whoWon.textContent = oneGame
+    });
+}
+
+possibleInputs();
